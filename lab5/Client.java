@@ -21,10 +21,8 @@ public class Client extends Thread{
             account.deposit(valor);
         }
         else{
-            if(account.withdraw(valor)){
-                System.out.printf("O Cliente %s tentou retirar %d%n",name,valor);
-            }
-            else{
+            System.out.printf("O Cliente %s tentou retirar %d%n",name,valor);
+            if(!account.withdraw(valor)){
                 System.out.printf("Clente: %s tentou retirar %d mas não havia dineiro.",name, valor);
                 if(account.getBalance() == 0){
                     System.out.printf("O saldo está em zero e estão tentado retirar");
